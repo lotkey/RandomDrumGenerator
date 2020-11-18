@@ -129,7 +129,20 @@ class MainWindow(QtWidgets.QWidget):
         container.layout().addWidget(kicklabel, 8, 0)
         container.layout().addWidget(snarelabel, 9, 0)
         container.layout().addWidget(cymballabel, 10, 0)
-        container.layout().addWidget(self.drumbutton, 8, 1, 1, 3)
+        container.layout().addWidget(self.drumbutton, 8, 4)
+
+        self.kick = QtWidgets.QLineEdit()
+        self.snare = QtWidgets.QLineEdit()
+        self.cymbal = QtWidgets.QLineEdit()
+        self.kick.setText(str(self.drummidinotes[0]))
+        self.snare.setText(str(self.drummidinotes[1]))
+        self.cymbal.setText(str(self.drummidinotes[2]))
+        self.kick.setFont(self.font)
+        self.snare.setFont(self.font)
+        self.cymbal.setFont(self.font)
+        container.layout().addWidget(self.kick, 8, 1, 1, 3)
+        container.layout().addWidget(self.snare, 9, 1, 1, 3)
+        container.layout().addWidget(self.cymbal, 10, 1, 1, 3)
 
         savebutton = QtWidgets.QPushButton("Save as default", clicked = lambda:self.savesettings())
         self.savename = QtWidgets.QLineEdit()
@@ -163,6 +176,8 @@ class MainWindow(QtWidgets.QWidget):
         self.drummidinotes[0] = int(self.kick.text())
         self.drummidinotes[1] = int(self.snare.text())
         self.drummidinotes[2] = int(self.cymbal.text())
+        self.usermessage.setStyleSheet("color:lightblue")
+        self.usermessage.setText("set: drums set")
 
     def noteinc(self, index, length):
         if not length == None:
@@ -188,6 +203,8 @@ class MainWindow(QtWidgets.QWidget):
         for i in range(0, len(self.drummidinotes)):
             midimapout.write(str(self.drummidinotes[i]) + '\n')
         midimapout.close()
+        self.usermessage.setStyleSheet("color:lightblue")
+        self.usermessage.setText("set: default set")
 
     def updatepercentages(self):
         lentotal = 0
@@ -229,10 +246,10 @@ class MainWindow(QtWidgets.QWidget):
     def export(self):
         if self.savename.text() == "" or self.kick.text() == "" or self.snare.text() == "" or self.cymbal.text() == "":
             self.usermessage.setText("err: missing field")
-            self.usermessage.setStyleSheet("color:red")
+            self.usermessage.setStyleSheet("color:pink")
         else:
             snarelist = []
-            cymbalist = []
+            cymballist = []
             kicklist = []
             kicktotal = 0
             kicklen = 0
@@ -244,14 +261,14 @@ class MainWindow(QtWidgets.QWidget):
                 else:
                     snarelist.append(-1)
 
-            while kicktotal < 0:
+            while kicktotal < 8:
                 kicklen = random.choice(self.midinotelengths)
                 while kicklen == 0 or kicklen == -1 or kicktotal + kicklen > 8:
                     kicklen = random.choice(self.midinotelengths)
                 kicklist.append(kicklen)
                 kicktotal += kicklen
 
-            self.usermessage.setStyleSheet("color:green")
+            self.usermessage.setStyleSheet("color:lightgreen")
             self.usermessage.setText("exp: \"" + self.savename.text() + ".mid\"")
             self.write(kicklist, snarelist, cymballist)
 
