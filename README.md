@@ -15,6 +15,7 @@ To install all necessary components for Windows:
 - after running the installer, open Command Prompt:
   - press the Windows key to open the search bar and search "cmd"
   - Command Prompt should be suggested
+  - open it
 - enter the command "pip install pyqt5" and press the enter key
   - do not include the double-quotes
 - enter the command "pip install midiutil" and press the enter key
