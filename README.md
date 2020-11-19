@@ -22,4 +22,4 @@ To install all necessary components for Windows:
   - do not include the double-quotes
   
 My website:
-synthchrismusic.wixsite.com/music
+https://synthchrismusic.wixsite.com/music
