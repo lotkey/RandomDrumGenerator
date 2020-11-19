@@ -2,9 +2,9 @@
 Generates 8 bars of random drums for metal with kick, snare, and cymbals.
 
 To run this program:
-- You must have some way of running Python programs
-- You must have downloaded the Python library PyQt5
-- You must have downloaded the Python library MidiUtil
+- You must have some way of running Python programs (see below for help)
+- You must have downloaded the Python library PyQt5 (see below for help)
+- You must have downloaded the Python library MidiUtil (see below for help)
 - double-click "Djent Drum Generator.pyw" to run
 
 To install all necessary components for Windows:
