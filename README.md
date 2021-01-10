@@ -22,6 +22,9 @@ To install all necessary components for Windows:
   - do not include the double-quotes
   
 To see the code in action, check out my video covering it:
+
 https://youtu.be/AJYvizCrWgM
+
 My website:
+
 https://synthchrismusic.wixsite.com/music
