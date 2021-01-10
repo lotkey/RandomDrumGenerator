@@ -21,5 +21,7 @@ To install all necessary components for Windows:
 - enter the command "pip install midiutil" and press the enter key
   - do not include the double-quotes
   
+To see the code in action, check out my video covering it:
+https://youtu.be/AJYvizCrWgM
 My website:
 https://synthchrismusic.wixsite.com/music
